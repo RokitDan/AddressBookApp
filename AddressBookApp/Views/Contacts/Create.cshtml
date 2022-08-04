@@ -83,14 +83,12 @@
                         <input asp-for="ZipCode" class="form-control" />
                         <span asp-validation-for="ZipCode" class="text-danger"></span>
                     </div>
-                    @*<div class="col-12 col-lg-6 mt-3">
-                    <label asp-for="Categories" class="control-label">Categories</label>
-                    <select class="form-select" multiple aria-label="multiple select example">
-                    <option selected>Friends</option>
-                    <option value="1">Family</option>
-                    <option value="2">Wedding</option>
-                    </select>
-                    </div>*@
+                    <div class="col-12 col-lg-6 mt-3">
+                        <label asp-for="Categories" class="control-label">Categories</label>
+                        @*ViewBag is built into ASP*@
+                        <select name="CategoryList" class="form-select" asp-items="ViewBag.CategoryList" multiple aria-label="multiple select example">
+                        </select>
+                    </div>
                     <div class="col-12 col-lg-6 mt-3">
                         <label asp-for="BirthDate" class="form-label"></label>
                         <input asp-for="BirthDate" class="form-control" />

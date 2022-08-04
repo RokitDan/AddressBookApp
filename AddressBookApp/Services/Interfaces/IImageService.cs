@@ -1,7 +1,7 @@
 ﻿namespace AddressBookApp.Services.Interfaces
 {
     public interface IImageService
-    {   
+    {
         //converts uploaded image to byte array
         public Task<byte[]> ConvertFileToByteArrayAsync(IFormFile file);
 

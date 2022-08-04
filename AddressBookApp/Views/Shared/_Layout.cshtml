@@ -42,9 +42,7 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+
 
                         @if (SignInManager.IsSignedIn(User))
                         {
@@ -64,7 +62,7 @@
     </header>
     <main class="content" id="mainHero">
         <section class="container h-100">
-        @RenderBody()
+            @RenderBody()
         </section>
     </main>
 
