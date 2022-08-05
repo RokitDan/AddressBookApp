@@ -25,7 +25,7 @@ namespace AddressBookApp.Services
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var emailSender = _mailSettings.Email;
+            var emailSender = _mailSettings.Email ?? Environment.GetEnvironmentVariable("Email");
 
             MimeMessage newEmail = new MimeMessage();
 
@@ -48,10 +48,10 @@ namespace AddressBookApp.Services
             using SmtpClient smtpClient = new SmtpClient();
             try
             {
-                var host = _mailSettings.Host;
-                var port = _mailSettings.Port;
+                var host = _mailSettings.Host ?? Environment.GetEnvironmentVariable("Host");
+                var port = _mailSettings.Port != 0 ? _mailSettings.Port : int.Parse(Environment.GetEnvironmentVariable("Port")!);
                 await smtpClient.ConnectAsync(host, port, SecureSocketOptions.StartTls);
-                await smtpClient.AuthenticateAsync(emailSender, _mailSettings.Password);
+                await smtpClient.AuthenticateAsync(emailSender, _mailSettings.Password ?? Environment.GetEnvironmentVariable("Password"));
 
                 await smtpClient.SendAsync(newEmail);
                 await smtpClient.DisconnectAsync(true);
