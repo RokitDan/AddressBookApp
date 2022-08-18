@@ -160,7 +160,7 @@ namespace AddressBookApp.Controllers
 
                 //Save images to database as byte arrays
                 _context.Add(contact);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();      
 
                 //Add contact to categories
                 foreach (int categoryId in CategoryList)
@@ -179,7 +179,7 @@ namespace AddressBookApp.Controllers
         // GET: Contacts/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
-        {
+        {       
             if (id == null)
             {
                 return NotFound();
