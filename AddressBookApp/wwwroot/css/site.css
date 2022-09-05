@@ -1,14 +1,25 @@
 :root {
-    --cf-primaryColor: #0869b8;
+    --cf-primaryColor: #e56363;
     --cf-primaryColorDark: #002a4e;
-    --cf-primaryColorLight: #edf5fc;
-    --cf-secondaryColor: #fff0d9;
+    --cf-primaryColorLight: #f1f9fc;
+    --cf-secondaryColor: #333743;
     --cf-secondaryColorLight: #FFF8EC;
-    --cf-dark-color: #131313;
+    --cf-dark-color: #002a4e;
     --cf-light-gray: #d9d9d9;
-    --cf-light-color: #eeeeee;
-    --cf-title-font: 'Fira Sans', sans-serif;
-    --cf-body-font: 'Roboto', sans-serif;
+    --cf-light-color: #f1f9fc;
+    --cf-title-font: 'Montserrat', sans-serif;
+    --cf-body-font: 'Lato', sans-serif;
+    --dls-dark-color: #1b2432;
+    --dls-light-color: #f1f9fc;
+    --dls-light2-color: rgba(250, 250, 250, 0.8);
+    --dls-primary-color: #e56363;
+    --dls-secondary-color: #333743;
+    --dls-action-color: #c9e7da;
+    --dls-highlight-color: #ff5d5d;
+    --dls-background-color: rgba(250, 250, 250, 0.8);
+    --dls-nav-toggler-glow: #f1f9fc;
+    --dls-nav-toggler-color: #1b2432;
+    --dls-title-color: var(var(--dls-secondary-color));
 }
 
 html,
@@ -27,39 +38,57 @@ body {
     font-size: 1.2rem;
 }
 
+ul {
+    list-style: none;
+}
+
+
 /*--Button Overrides --*/
 /*-- Button styles override Bootstrap Styles --*/
-.btn-outline-primary {
-    color: var(--cf-dark-color);
-    border-color: var(--cf-primaryColor) !important;
+.btn {
+    z-index: 1;
+    position: relative;
+    border-radius: 7px !important;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
-    .btn-outline-primary:hover,
-    .btn-outline-primary:active,
-    .btn-outline-primary:focus {
-        border-color: var(--cf-secondaryColor) !important;
-        background-color: var(--cf-primaryColor);
-    }
+.btn-primary:hover {
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
+    border: none !important;
+    transform: scale(105%);
+    transition: var(--dls-transition-time);
+    background: white !important;
+    color: var(--dls-primary-color) !important;
+}
+
+.btn-secondary:hover {
+    box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
+    border: none !important;
+    transform: scale(105%);
+    transition: var(--dls-transition-time);
+    background: white !important;
+    color: var(--dls-secondary-color) !important;
+}
 
 .btn-primary {
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
     color: white !important;
-    background-color: var(--cf-primaryColor) !important;
-    border-color: var(--cf-secondary-color);
+    background-color: var(--dls-primary-color) !important;
+    border: none !important;
 }
 
-    .btn-primary:hover {
-        filter: brightness(1.2) !important;
-        border-color: var(--cf-primaryColorDark);
-    }
+.btn-secondary {
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    color: white !important;
+    background-color: var(--dls-secondary-color) !important;
+    border: none !important;
+}
 
-    .btn-primary:active,
-    .btn-primary:visited,
-    .btn-primary:focus {
-        filter: brightness(1.2) !important;
-    }
-
-.btnlinks {
-    width: 7rem;
+button:hover .bi {
+    color: var(--dls-primary-color) !important;
 }
 
 nav {
@@ -127,9 +156,6 @@ main {
 
 .sideNav {
     border-radius: 25px;
-    border-color: var(--cf-light-color);
-    border-style: solid;
-    border-width: 3px;
     background-color: var(--cf-secondaryColor);
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -178,11 +204,21 @@ main {
         cursor: pointer;
     }
 
+.roundedCorners {
+    border-radius: 1rem;
+}
+
+
 .square-img-container {
     position: relative;
     background-color: var(--cf-primaryColorLight);
-    border-color: var(--cf-light-gray);
-    border-style: solid;
+    border-color: none !important;
+    width: 85%;
+    height: 85%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .square-img-container::after {
@@ -197,6 +233,16 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: top;
+}
+
+
+
+
+.card {
+    border: none !important;
+    box-shadow: 1px 15px 52px -16px rgba(0,0,0,0.29);
+    -webkit-box-shadow: 1px 15px 52px -16px rgba(0,0,0,0.29);
+    -moz-box-shadow: 1px 15px 52px -16px rgba(0,0,0,0.29);
 }
 
 

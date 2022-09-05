@@ -369,11 +369,11 @@ namespace AddressBookApp.Controllers
                 try
                 {
                     await _emailService.SendEmailAsync(ecvm.EmailData.EmailAddress, ecvm.EmailData.Subject, ecvm.EmailData.Body);
-                    return RedirectToAction("Index", "Contacts", new { swalMessage = "Success: Email Sent!" });
+                    return RedirectToAction("Index", "EmailAdmin", new { swalMessage = "Success: Email Sent!" });
                 }
                 catch
                 {
-                    return RedirectToAction("Index", "Contacts", new { swalMessage = "Error, Email Not Sent!" });
+                    return RedirectToAction("Index", "EmailAdmin", new { swalMessage = "Error, Email Not Sent!" });
                     throw;
                 }
             }

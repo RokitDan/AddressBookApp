@@ -10,15 +10,15 @@
 
 
 
-<h1>EDIT CONTACT</h1>
 
 
 
 
 
-<h1>Create</h1>
 
-<h4>Contact</h4>
+<h1>Create new Contact</h1>
+
+
 <hr />
 
 
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-12 col-lg-6 mt-3">
                         <label asp-for="Categories" class="control-label">Categories</label>
-                        @*ViewBag is built into ASP*@
+
                         <select name="CategoryList" class="form-select" asp-items="ViewBag.CategoryList" multiple aria-label="multiple select example">
                         </select>
                     </div>
@@ -104,7 +104,12 @@
     </form>
 </div>
 
-<div>
+
+
+
+
+
+<div class="mt-5">
     <a asp-action="Index">Back to List</a>
 </div>
 
