@@ -56,26 +56,24 @@ ul {
 .btn-primary:hover {
     box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
     border: none !important;
-    transform: scale(105%);
     transition: var(--dls-transition-time);
     background: white !important;
-    color: var(--dls-primary-color) !important;
+    color: #4CAEFF !important;
 }
 
 .btn-secondary:hover {
     box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
     border: none !important;
-    transform: scale(105%);
     transition: var(--dls-transition-time);
     background: white !important;
-    color: var(--dls-secondary-color) !important;
+    color: #4CAEFF !important;
 }
 
 .btn-primary {
     text-transform: uppercase !important;
     font-weight: 500 !important;
     color: white !important;
-    background-color: var(--dls-primary-color) !important;
+    background-color: #4CAEFF !important;
     border: none !important;
 }
 
