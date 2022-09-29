@@ -5,7 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-AddressBookApp-98A566A4-CFBC-427F-8999-D0EF5EDE0D14</UserSecretsId>
+<InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="AddressBookApp.csproj.user" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="3.3.0" />
