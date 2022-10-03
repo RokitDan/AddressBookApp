@@ -160,7 +160,7 @@ namespace AddressBookApp.Controllers
 
                 //Save images to database as byte arrays
                 _context.Add(contact);
-                await _context.SaveChangesAsync();      
+                await _context.SaveChangesAsync();
 
                 //Add contact to categories
                 foreach (int categoryId in CategoryList)
@@ -179,7 +179,7 @@ namespace AddressBookApp.Controllers
         // GET: Contacts/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
-        {       
+        {
             if (id == null)
             {
                 return NotFound();
@@ -328,8 +328,9 @@ namespace AddressBookApp.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> EmailContact(int id)
+        public async Task<IActionResult> EmailContact(int id, string swalMessage = null)
         {
+            ViewData["SwalMessage"] = swalMessage;
             string appUserId = _userManager.GetUserId(User);
             Contact contact = await _context.Contact.Where(c => c.Id == id && c.AppUserId == appUserId)
                                                     .FirstOrDefaultAsync();
@@ -369,15 +370,16 @@ namespace AddressBookApp.Controllers
                 try
                 {
                     await _emailService.SendEmailAsync(ecvm.EmailData.EmailAddress, ecvm.EmailData.Subject, ecvm.EmailData.Body);
-                    return RedirectToAction("Index", "EmailAdmin", new { swalMessage = "Success: Email Sent!" });
+                    return RedirectToAction("Index", "Contacts", new { swalMessage = "Success: Email Sent!" });
+
                 }
                 catch
                 {
-                    return RedirectToAction("Index", "EmailAdmin", new { swalMessage = "Error, Email Not Sent!" });
+                    return RedirectToAction("Index", "Contacts", new { swalMessage = "Error, Email Not Sent!" });
                     throw;
                 }
             }
-            return View(ecvm);
+            return View();
 
         }
 
