@@ -7,4 +7,5 @@ namespace AddressBookApp.Services.Interfaces
     {
         Task SendEmailAsync(AppUser appUser, List<Contact> contacts, EmailData emailData);
     }
+
 }

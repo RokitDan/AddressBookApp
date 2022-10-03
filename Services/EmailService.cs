@@ -20,7 +20,7 @@ namespace AddressBookApp.Services
 
         public Task SendEmailAsync(AppUser appUser, List<Contact> contacts, EmailData emailData)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); 
         }
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
