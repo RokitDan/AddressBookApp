@@ -13,6 +13,7 @@ using AddressBookApp.Models.ViewModels;
 using AddressBookApp.Enums;
 using AddressBookApp.Services;
 using AddressBookApp.Services.Interfaces;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AddressBookApp.Controllers
 {
@@ -22,13 +23,13 @@ namespace AddressBookApp.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IImageService _imageService;
         private readonly IAddressBookService _addressBookService;
-        private readonly IABEmailService _emailService;
+        private readonly IEmailSender _emailService;
 
         public ContactsController(ApplicationDbContext context,
                                   UserManager<AppUser> userManager,
                                   IImageService imageService,
                                   IAddressBookService addressBookService,
-                                  IABEmailService emailService)
+                                  IEmailSender emailService)
         {
             _context = context;
             _userManager = userManager;

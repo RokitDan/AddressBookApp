@@ -11,7 +11,7 @@ using AddressBookApp.Data;
 using AddressBookApp.Models;
 using AddressBookApp.Models.ViewModels;
 using AddressBookApp.Services.Interfaces;
-
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AddressBookApp.Controllers
 {
@@ -19,9 +19,9 @@ namespace AddressBookApp.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<AppUser> _userManager;
-        private readonly IABEmailService _emailService;
+        private readonly IEmailSender _emailService;
 
-        public CategoriesController(ApplicationDbContext context, UserManager<AppUser> userManager, IABEmailService emailService)
+        public CategoriesController(ApplicationDbContext context, UserManager<AppUser> userManager, IEmailSender emailService)
         {
             _context = context;
             _userManager = userManager;
