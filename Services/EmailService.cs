@@ -21,12 +21,12 @@ namespace AddressBookApp.Services
 
         public Task SendEmailAsync(AppUser appUser, List<Contact> contacts, EmailData emailData)
         {
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
         }
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var emailSender = _mailSettings.Email ?? Environment.GetEnvironmentVariable("Email");
+            var emailSender = _mailSettings.Email ?? Environment.GetEnvironmentVariable("EmailAddress");
 
             MimeMessage newEmail = new MimeMessage();
 
@@ -49,10 +49,10 @@ namespace AddressBookApp.Services
             using SmtpClient smtpClient = new SmtpClient();
             try
             {
-                var host = _mailSettings.Host ?? Environment.GetEnvironmentVariable("Host");
-                var port = _mailSettings.Port != 0 ? _mailSettings.Port : int.Parse(Environment.GetEnvironmentVariable("Port")!);
+                var host = _mailSettings.Host ?? Environment.GetEnvironmentVariable("EmailHost");
+                var port = _mailSettings.Port != 0 ? _mailSettings.Port : int.Parse(Environment.GetEnvironmentVariable("EmailPort")!);
                 await smtpClient.ConnectAsync(host, port, SecureSocketOptions.StartTls);
-                await smtpClient.AuthenticateAsync(emailSender, _mailSettings.Password ?? Environment.GetEnvironmentVariable("Password"));
+                await smtpClient.AuthenticateAsync(emailSender, _mailSettings.Password ?? Environment.GetEnvironmentVariable("EmailPassword"));
 
                 await smtpClient.SendAsync(newEmail);
                 await smtpClient.DisconnectAsync(true);
