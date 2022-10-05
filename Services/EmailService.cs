@@ -6,10 +6,11 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace AddressBookApp.Services
 {
-    public class EmailService : IABEmailService
+    public class EmailService : IEmailSender
     {
         private readonly MailSettings _mailSettings;
 
